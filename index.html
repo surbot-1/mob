@@ -8,6 +8,7 @@
   
 <body>
 <div id="div1"> </div>
+<div id="divCanv"> </div>
 <script>
   
 var canv = document.createElement("canvas");
@@ -15,7 +16,7 @@ canv.setAttribute("id", "canvas");
 canv.setAttribute("width", "1080");
 canv.setAttribute("height", "2400");
 canv.setAttribute("border", "1px solid black");
-document.body.appendChild(canv);
+document.getElementById("divCanv").appendChild(canv);
   
 </script>
 
@@ -69,7 +70,7 @@ function handleMove(evt) {
   var touches = evt.changedTouches;
   var  x = touches[0].pageX;
   var  y = touches[0].pageY;
- // document.getElementById("div").innerHTML += "<br>"+ x +" "+ y;
+ // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
  }
     
 function handleEnd(evt) {
