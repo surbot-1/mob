@@ -51,16 +51,20 @@ var context = canvas.getContext('2d');
 </script>
 
 <script>
-  
+  var cordx, cordy, cords ;
   function handleStart(evt) {
   evt.preventDefault();
   // console.log("touchstart.");
   var el = document.getElementById("canvas");
   var ctx = el.getContext("2d");
   var touches = evt.changedTouches;
-  var  x = touches[0].pageX;
-  var  y = touches[0].pageY;
-  document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+  var  x = touches[0].pageX; tx = x;
+  var  y = touches[0].pageY; ty = y; cords = x+y;
+  // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+  var canv = document.getElementById("canvas");
+  var ctx = canv.getContext('2d');
+  ctx.font = "30px Arial";
+  ctx.fillText(cords,x,y);
 }
 
 function handleMove(evt) {
