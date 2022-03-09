@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+  
+<body>
+<div id="div1"> </div>
+<script>
+  
+var canv = document.createElement("canvas");
+canv.setAttribute("id", "canvas");
+canv.setAttribute("width", "1080");
+canv.setAttribute("height", "2400");
+canv.setAttribute("border", "1px solid black");
+document.body.appendChild(canv);
+  
+</script>
+
+  
+<script>
+  
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext('2d');
+
+        var image = new Image();
+        image.setAttribute('crossOrigin', 'anonymous');
+        image.src = 'keypad1.png';
+        image.onload = function (e) {
+          context.drawImage(image, 0, 1759, 1080, 640);
+        };
+        
+  
+</script>
+
+<script>
+  
+  function handleStart(evt) {
+  evt.preventDefault();
+  // console.log("touchstart.");
+  var el = document.getElementById("canvas");
+  var ctx = el.getContext("2d");
+  var touches = evt.changedTouches;
+  var  x = touches[0].pageX;
+  var  y = touches[0].pageY;
+  document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+}
+
+function handleMove(evt) {
+  evt.preventDefault();
+  var el = document.getElementById("canvas");
+  var ctx = el.getContext("2d");
+  var touches = evt.changedTouches;
+  var  x = touches[0].pageX;
+  var  y = touches[0].pageY;
+ // document.getElementById("div").innerHTML += "<br>"+ x +" "+ y;
+ }
+    
+function handleEnd(evt) {
+  evt.preventDefault();
+  // log("touchend");
+  var el = document.getElementById("canvas");
+  var ctx = el.getContext("2d");
+  var touches = evt.changedTouches;
+  var  x = touches[0].pageX;
+  var  y = touches[0].pageY;
+ // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+ }
+    
+function handleCancel(evt) {
+  evt.preventDefault();
+  // console.log("touchcancel.");
+  var touches = evt.changedTouches;
+  var  x = touches[0].pageX;
+  var  y = touches[0].pageY;
+  // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+ }
+    
+function log(msg) {
+  var p = document.getElementById('div1');
+  p.innerHTML = msg + "\n" + p.innerHTML;
+ }
+    
+function startup() {
+  var el = document.getElementById("canvas");
+  el.addEventListener("touchstart", handleStart, false);
+  el.addEventListener("touchend", handleEnd, false);
+  el.addEventListener("touchcancel", handleCancel, false);
+  el.addEventListener("touchmove", handleMove, false);
+}
+
+document.addEventListener("DOMContentLoaded", startup);
+  
+</script>
+
+<script>
+  
+</script>
+  
+<script>
+  
+</script>
+  
+</body>
+</html>
