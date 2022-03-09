@@ -9,6 +9,9 @@
 <body>
 <div id="div1"> </div>
 <div id="divCanv"> </div>
+	
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
 <script>
   
 var canv = document.createElement("canvas");
@@ -167,8 +170,37 @@ requestFS();
 	document.body.requestFullscreen();
 });
 
-  
+
+	
 </script>
   
+<script>
+	openFullscreen();
+/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+</script>
+	
 </body>
 </html>
