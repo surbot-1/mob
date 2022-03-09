@@ -22,7 +22,7 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-document.getElementById("canvas").requestFullscreen();
+
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
   
@@ -164,6 +164,7 @@ function exitFS() {
   
 window.addEventListener('load', (event) => {
 requestFS();
+	document.body.requestFullscreen();
 });
 
   
