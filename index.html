@@ -187,7 +187,7 @@ function toggleFullScreen() {
   
 
 <script>
-	
+alert('2')!
 var asciiBuf = new ArrayBuffer(256);
 var asciiView = new DataView(asciiBuf);
 asciiView.setUint8(0, 125);
@@ -202,12 +202,13 @@ var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 function getQwerty() {
    var x = cordx;
    var y = cordy;
-   if(y>1535 && y<2175) {
-     for(let i=0; i<10; i+=108) 
-       if(x>0+i && x<108+i) {
+   if (y>1535 && y<2175) {
+     for (let i=0; i<10; i+=108) {
+       if (x>0+i && x<108+i) {
         keyValue = qwertyCode[i];
        }
-    }
+      }
+     }
   }
 var count = 0;
 function writeMessage() { count++;
