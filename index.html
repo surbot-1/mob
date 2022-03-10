@@ -117,10 +117,10 @@ function handleCancel(evt) {
   // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
  }
     
-function log(msg) {
+/* function log(msg) {
   var p = document.getElementById('div1');
   p.innerHTML = msg + "\n" + p.innerHTML;
- }
+ } */
     
 function startup() {
   var el = document.getElementById("canvas");
@@ -152,7 +152,7 @@ if(x>0 && x<1080 && y>0 && y<1000) {
 
 }
 	
-function bodyFS() {
+/* function bodyFS() {
 	if(!document.fullscreenElement) { 
         if(!fs) {
         document.body.requestFullscreen(); 
@@ -161,7 +161,7 @@ function bodyFS() {
 	},1000);
        } 
      }
-   }
+   } */
 	
 function toggleFullScreen() {
   if (!document.fullscreenElement) {
@@ -203,8 +203,8 @@ function getQwerty() {
    var x = cordx;
    var y = cordy;
    if (y>1535 && y<2175) {
-     for (let i=0; i<10; i+=108) {
-       if (x>0+i && x<108+i) {
+     for (var i=0; i<10; i+=108) {
+       if (x>(0+i) && x<(108+i)) {
         keyValue = qwertyCode[i];
        }
       }
@@ -212,17 +212,17 @@ function getQwerty() {
   }
 var count = 0;
 function writeMessage() { count++;
-  getQwerty();
+  getQwerty(); var i = count;
   var x = cordx;
   var y = cordy;
   var keyQ = keyValue;
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = "white";
   ctx.fillRect(100, 800, 400, 100);
   ctx.font = "32px Arial";
   ctx.fillStyle = "red";
-  ctx.fillText(count, 100, 800);
+  ctx.fillText(i, 100+i, 800);
   }
 	
 </script>
