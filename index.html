@@ -25,7 +25,7 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-       var cx=0, cy=0, cw=0, ch=0;
+       var cx=0, cy=0, cw=1080, ch=2400-112-112;
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
         
@@ -33,10 +33,10 @@ var context = canvas.getContext('2d');
         image1.setAttribute('crossOrigin', 'anonymous');
         image1.src = 'dp2.png';
         image1.onload = function (e) {
-        var x = cx+0;
-	var y = cy+0;
-	var w = cw+1080;
-	var h = ch+144;
+        var x = cx;
+	var y = cy;
+	var w = cw;
+	var h = 144;
           context.drawImage(image1, x, y, w, h);
         };
 
@@ -44,10 +44,10 @@ var context = canvas.getContext('2d');
         image2.setAttribute('crossOrigin', 'anonymous');
         image2.src = 'text4.png';
         image2.onload = function (e) {
-	var x = cx+2400-144-640-1;
+	var x = ch-144-640-1;
 	var y = cy;
-	var w = cw+1080;
-	var h = ch+144;
+	var w = cw;
+	var h = 144;
           context.drawImage(image2, x, y, w, h);
         };
         
@@ -55,10 +55,10 @@ var context = canvas.getContext('2d');
         image3.setAttribute('crossOrigin', 'anonymous');
         image3.src = 'keypad1.png';
         image3.onload = function (e) {
-	var x = cx+2400-640-1;
+	var x = ch-640-1;
 	var y = cy;
-	var w = cw+1080;
-	var h = ch+640;
+	var w = cw;
+	var h = 640;
           context.drawImage(image3, x, y, w, h);
         };
         
