@@ -101,6 +101,10 @@ function handleEnd(evt) {
   var  x = touches[0].pageX;
   var  y = touches[0].pageY;
  // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+ if(x>480 && x<640 && y>0 && y<144) {
+       toggleFullScreen();
+        }
+	
  }
     
 function handleCancel(evt) {
@@ -143,15 +147,9 @@ if(x>0 && x<1080 && y>0 && y<1000) {
   ctx.fillStyle = "red";
   ctx.fillText("x",100,500);
   ctx.fillText("y",100,550);
-  }
-	
-  if(x>480 && x<640 && y>0 && y<144) {
-  /* bodyFS(); */ toggleFullScreen();
-        }
-	
- }
-   
- 
+  }			
+
+}
 	
 function bodyFS() {
 	if(!document.fullscreenElement) { 
