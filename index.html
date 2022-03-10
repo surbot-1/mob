@@ -151,12 +151,14 @@ if(x>0 && x<1080 && y>1000 && y<2000) { bodyFS(); }
    
  
 	
-function bodyFS() { if(!document.fullscreenElement) {
+function bodyFS() { /* if(!document.fullscreenElement) { */
+        if(!fs) {
         document.body.requestFullscreen(); 
         setTimeout(function() { 
-	document.exitFullscreen();
+	document.exitFullscreen(); fs = true;
 	},0100);
-    } }
+      } 
+   }
   
 </script>
   
