@@ -25,7 +25,7 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-document.body.requestFullscreen(); openFullscreen();
+
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
   
@@ -137,7 +137,8 @@ function writeCords() {
 
   
 <script>
-	openFullscreen();
+	
+openFullscreen(); // document.body.requestFullscreen();
 /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
 
@@ -162,6 +163,7 @@ function closeFullscreen() {
     document.msExitFullscreen();
   }
 }
+	
 </script>
 
 	
