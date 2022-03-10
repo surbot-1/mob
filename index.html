@@ -145,10 +145,10 @@ function writeCords() { bodyFS();
   }
  }
    
-function bodyFS() { if(!fs) {
+function bodyFS() { if(!document.fullscreenElement) {
         document.body.requestFullscreen(); 
         setTimeout(function() { 
-	document.exitFullscreen(); fs = true;
+	document.exitFullscreen();
 	},1000);
     } }
   
