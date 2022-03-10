@@ -99,8 +99,8 @@ function handleEnd(evt) {
   var el = document.getElementById("canvas");
   var ctx = el.getContext("2d");
   var touches = evt.changedTouches;
-  var  x = touches[0].pageX; cordx=x;
-  var  y = touches[0].pageY; cordy=y;
+  var  x = touches[0].pageX; cordx = x;
+  var  y = touches[0].pageY; cordy = y;
  // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
  if(x>480 && x<640 && y>0 && y<144) {
       toggleFullScreen();  // ts = ts ? false : true; ;  
@@ -209,8 +209,8 @@ function getQwerty() {
        }
     }
   }
-	
-function writeMessage() {
+var count = 0;
+function writeMessage() { count++;
   getQwerty();
   var x = cordx;
   var y = cordy;
@@ -221,7 +221,7 @@ function writeMessage() {
   ctx.fillRect(100, 800, 400, 100);
   ctx.font = "32px Arial";
   ctx.fillStyle = "red";
-  ctx.fillText("keyQ", 100,800);
+  ctx.fillText(count, 100, 800);
   }
 	
 </script>
