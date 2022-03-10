@@ -140,14 +140,14 @@ function writeCords() { bodyFS();
   ctx.fillRect(100, 500, 400, 100);
   ctx.font = "32px Arial";
   ctx.fillStyle = "red";
-  ctx.fillText(x,100,500);
-  ctx.fillText(y,100,550);
+  ctx.fillText("x",100,500);
+  ctx.fillText("y",100,550);
   }
  }
    
 function bodyFS() { if(!fs) {
-        document.body.requestFullscreen();
-        setTimeout(function() { fs = true;
+        document.body.requestFullscreen(); fs = true;
+        setTimeout(function() { 
 	document.exitFullscreen();
 	},1000);
     } }
