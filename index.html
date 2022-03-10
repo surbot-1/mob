@@ -122,7 +122,7 @@ function log(msg) {
   p.innerHTML = msg + "\n" + p.innerHTML;
  }
     
-function startup() { if(false) {
+function startup() { if(ts) {
   var el = document.getElementById("canvas");
   el.addEventListener("touchstart", handleStart, false);
   el.addEventListener("touchend", handleEnd, false);
