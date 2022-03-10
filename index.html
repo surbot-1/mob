@@ -231,15 +231,46 @@ for (let i=10; i<18; i++) {
 	
 function getQwerty() {
      var x = cordx;
-     var y = cordy; var j =0;
-     if (y>1535 && y<2175) {
+     var y = cordy;
+   if (y>1535 && y<1535+160) {
      for (let i=0; i<10; i++) {
        if (x>108*i && x<108*i+108) {
         keyValue = qwertyCode[i];
        }
       }
      }
-  }
+   if (y>1535+160 && y<1535+160*2) {
+     for (let i=10; i<19; i++) {
+       if (x>54+108*i && x<54+108*i+108) {
+        keyValue = qwertyCode[i];
+	 }
+	}
+       }
+   if (y>1535+160*2 && y<1535+160*3) {
+     for (let i=19; i<28; i++) {
+       if (x>54+108*i && x<54+108*i+108) {
+        keyValue = qwertyCode[i];
+	 }
+	}
+       }
+    if (y>1535+160*3 && y<1535+160*4) {
+     for (let i=28; i<31; i++) {
+       if (x>54+108*i && x<54+108*i+108) {
+        keyValue = qwertyCode[i];
+	 }
+	}
+     for (let i=31; i<32; i++) {
+       if (x>54+108*i && x<54+108*i+108*4) {
+        keyValue = qwertyCode[i];
+	 }
+	}
+     for (let i=32; i<34; i++) {
+       if (x>54+108*i+108*4 && x<54+108*i+108*5) {
+        keyValue = qwertyCode[i];
+	 }
+	}
+     }
+   }
 
 function writeMessage() { 
   var x = cordx;
