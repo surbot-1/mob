@@ -44,8 +44,8 @@ var context = canvas.getContext('2d');
         image2.setAttribute('crossOrigin', 'anonymous');
         image2.src = 'text4.png';
         image2.onload = function (e) {
-	var x = ch-144-640-1;
-	var y = cy;
+	var x = cx;
+	var y = ch-144-640-1;
 	var w = cw;
 	var h = 144;
           context.drawImage(image2, x, y, w, h);
@@ -55,8 +55,8 @@ var context = canvas.getContext('2d');
         image3.setAttribute('crossOrigin', 'anonymous');
         image3.src = 'keypad1.png';
         image3.onload = function (e) {
-	var x = ch-640-1;
-	var y = cy;
+	var x = cx;
+	var y = ch-640-1;
 	var w = cw;
 	var h = 640;
           context.drawImage(image3, x, y, w, h);
