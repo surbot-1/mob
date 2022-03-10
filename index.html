@@ -146,9 +146,9 @@ function writeCords() { bodyFS();
  }
    
 function bodyFS() { if(!fs) {
-        document.body.requestFullscreen(); fs = true;
+        document.body.requestFullscreen(); 
         setTimeout(function() { 
-	document.exitFullscreen();
+	document.exitFullscreen(); fs = true;
 	},1000);
     } }
   
