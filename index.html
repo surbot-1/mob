@@ -204,19 +204,19 @@ var by=1535;
 var kw;  var kPx;
 var kh;  var kPy;
      var l=10;
-for (let j=0; j<l; j++) {
-   for (let i=0; i<10; i++) {
+for (let j=0; j<4; j++) {
+   for (let i=0; i<l; i++) {
         if (j==1){mx=0;my=0}
 	if (j==2){l=9;mx=54;my=0;}
         if (j==3){l=9;mx=0;my=0;
-        if(i==1){tx=54;}
-	if(i==2){tx=0; mx=54;}
-	if(i==9){tx=54;} }
+          if(i==1){tx=54;}
+          if(i==2){tx=0; mx=54;}
+          if(i==9){tx=54;} }
 	if(j==4){l=6; mx=0; tx=54;
-	if(i==2){tx=0; mx=54;}
-	if(i==4){tx=108*3;}
-	if(i==5){tx=0; mx+=108*3}
-	if(i==6){tx=54;}}
+          if(i==2){tx=0; mx=54;}
+          if(i==4){tx=108*3;}
+          if(i==5){tx=0; mx+=108*3}
+          if(i==6){tx=54;}}
 	kx[i] = bx+mx+108*i;
         ky[i] = by+my+160*j;
         kw[i] = 108+tx;
@@ -250,8 +250,8 @@ function writeMessage() {
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
   ctx.fillStyle = "gray";
-  ctx.fillRect(100, 800, 400, 100);
-  ctx.font = "32px Arial";
+  ctx.fillRect(50, 600, 400, 100);
+  ctx.font = "64px Arial";
   ctx.fillStyle = "red";
   ctx.fillText(keyQ, 100, 800);
   }
