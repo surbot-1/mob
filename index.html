@@ -25,7 +25,7 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-document.getElementById("divCanv").requestFullscreen();
+
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
   
@@ -124,7 +124,7 @@ function writeCords() {
   var ctx = canv.getContext('2d');
   var x = cordx; var y = cordy;
   if(x>0 && x<1080 && y>0 && y<1000) {
-  openFullscreen();
+  document.getElementById("divCanv").requestFullscreen();
   ctx.font = "32px Arial";
   ctx.fillText("Cords",100,100);
   }
