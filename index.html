@@ -25,22 +25,22 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-
+       var canvx, canvy, canvw, canvh;
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
-  
+        
         var image1 = new Image();
         image1.setAttribute('crossOrigin', 'anonymous');
-        image1.src = 'dp1.png';
+        image1.src = 'dp2.png';
         image1.onload = function (e) {
-          context.drawImage(image1, 0, 0, 1080, 256);
+          context.drawImage(image1, 0, 0, 1080, 144);
         };
 
         var image2 = new Image();
         image2.setAttribute('crossOrigin', 'anonymous');
-        image2.src = 'text2.png';
+        image2.src = 'text4.png';
         image2.onload = function (e) {
-          context.drawImage(image2, 0, 1599, 1080, 160);
+          context.drawImage(image2, 0, 1599, 1080, 144);
         };
         
         var image3 = new Image();
