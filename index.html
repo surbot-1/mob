@@ -136,11 +136,18 @@ function writeCords() {
   var ctx = canv.getContext('2d');
   var x = cordx; var y = cordy;
   if(x>0 && x<1080 && y>0 && y<1000) {
-  document.body.requestFullscreen(); // document.body.exitFullscreen(); 
+  bodyFS();
   ctx.font = "32px Arial";
-  ctx.fillText("Cords",100,100);
+  ctx.fillText(x, y,100,100);
   }
  }
+	
+function bodyFS() {
+        document.body.requestFullscreen();
+        setTimeout(function() {
+	document.body.exitFullscreen();
+	},1000);
+}
   
 </script>
   
