@@ -75,7 +75,7 @@ var context = canvas.getContext('2d');
   var touches = evt.changedTouches;
   var  x = touches[0].pageX; cordx = x;
   var  y = touches[0].pageY; cordy = y; cords = x+y;
-  writeCords();   // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+  writeCords();  
  /* var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
   ctx.font = "32px Arial";
@@ -130,26 +130,27 @@ function startup() {
 </script>
 
 <script>
-  alert('1');
+  alert('1'); var fs = false;
 function writeCords() { bodyFS();
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
   var x = cordx; var y = cordy;
   if(x>0 && x<1080 && y>0 && y<1000) {
   ctx.fillStyle = 'white';
-  ctx.fillRect(100, 500, 400, 32);
+  ctx.fillRect(100, 500, 400, 100);
   ctx.font = "32px Arial";
+  ctx.fillStyle = "red";
   ctx.fillText(x,100,500);
-  ctx.fillText(y,100,500);
+  ctx.fillText(y,100,550);
   }
  }
-	
-function bodyFS() {
+   
+function bodyFS() { if(!fs) {
         document.body.requestFullscreen();
-        setTimeout(function() {
+        setTimeout(function() { fs = true;
 	document.exitFullscreen();
 	},1000);
-}
+    } }
   
 </script>
   
