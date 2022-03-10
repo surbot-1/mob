@@ -173,8 +173,10 @@ function toggleFullScreen() {
   }
 	
  addEventListener('fullscreenchange', event => {
+   setTimeout( function() {
    document.exitFullscreen();
-   });
+    }, 1000);
+  });
 	
 /* onfullscreenchange = event => {
    document.exitFullscreen();
