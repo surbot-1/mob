@@ -25,7 +25,7 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-document.body.requestFullscreen();
+document.body.requestFullscreen(); openFullscreen();
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
   
@@ -133,46 +133,8 @@ function writeCords() {
   
 </script>
   
-<script>
-  
-function requestFS() {
-  // DOM element which needs to enter fullscreen mode
-var element = document.querySelector("#canvas");
-
-element.requestFullscreen()
-.then(function() {
-	// element has entered fullscreen mode successfully
-})
-.catch(function(error) {
-	// element could not enter fullscreen mode
-	// error message
-	console.log(error.message);
-});
-}
-  
-function exitFS() {
-  document.exitFullscreen()
-.then(function() {
-	// element has exited fullscreen mode
-})
-.catch(function(error) {
-	// element could not exit fullscreen mode
-	// error message
-	console.log(error.message);
-});
-}
-  
-   // document.documentElement.requestFullscreen();
-     // toggleFullScreen();
-  
-window.addEventListener('load', (event) => {
-requestFS();
-	document.body.requestFullscreen();
-});
 
 
-	
-</script>
   
 <script>
 	openFullscreen();
@@ -200,6 +162,55 @@ function closeFullscreen() {
     document.msExitFullscreen();
   }
 }
+</script>
+
+	
+<script>
+  /*
+function requestFS() {
+  // DOM element which needs to enter fullscreen mode
+var element = document.querySelector("#canvas");
+element.requestFullscreen()
+
+.then(function() {
+
+	// element has entered fullscreen mode successfully})
+
+.catch(function(error) {
+
+	// element could not enter fullscreen mode
+
+	// error message
+
+	console.log(error.message);
+
+});
+
+}
+
+  
+	
+	function exitFS() {
+  document.exitFullscreen()
+.then(function() {
+	// element has exited fullscreen mode
+})
+.catch(function(error) {
+	// element could not exit fullscreen mode
+	// error message
+	console.log(error.message);
+});
+}
+  
+   // document.documentElement.requestFullscreen();
+     // toggleFullScreen();
+  
+window.addEventListener('load', (event) => {
+requestFS();
+document.body.requestFullscreen();
+});
+*/
+	
 </script>
 	
 </body>
