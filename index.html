@@ -124,7 +124,7 @@ function writeCords() {
   var ctx = canv.getContext('2d');
   var x = cordx; var y = cordy;
   if(x>0 && x<1080 && y>0 && y<1000) {
-  document.body.requestFullscreen();
+  document.body.requestFullscreen(); zoomIn();
   ctx.font = "32px Arial";
   ctx.fillText("Cords",100,100);
   }
@@ -162,6 +162,29 @@ function closeFullscreen() {
     document.msExitFullscreen();
   }
 }
+	
+</script>
+	
+<script>
+	
+	function zoomIn(){
+                var body = document.querySelector("body");
+                var currWidth = body.clientWidth;
+                if(currWidth == 1000000){
+                    alert("Maximum zoom-in level of 1 Million reached.");
+                } else{
+                    body.style.width = (currWidth + 50) + "px";
+                } 
+            }
+            function zoomOut(){
+                var body = document.querySelector("body");
+                var currWidth = body.clientWidth;
+                if(currWidth == 500000){
+                    alert("Maximum zoom-out level reached.");
+                } else{
+                    body.style.width = (currWidth - 50) + "px";
+                }
+            }
 	
 </script>
 
