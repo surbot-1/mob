@@ -99,13 +99,13 @@ function handleEnd(evt) {
   var el = document.getElementById("canvas");
   var ctx = el.getContext("2d");
   var touches = evt.changedTouches;
-  var  x = touches[0].pageX;
-  var  y = touches[0].pageY;
+  var  x = touches[0].pageX; cordx=x;
+  var  y = touches[0].pageY; cordy=y;
  // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
  if(x>480 && x<640 && y>0 && y<144) {
       toggleFullScreen();  // ts = ts ? false : true; ;  
         }
-	
+  writeMessage();
  }
     
 function handleCancel(evt) {
@@ -194,19 +194,35 @@ asciiView.setUint8(0, 125);
 asciiView.getUint8(0); // 125
 var asciiValue = new Uint8Array(asciiBuf);
 var keyValue;
-var qwertyCapital = ["Q","W","E","R","T","Y","U","I","O","P",
+var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "Ar", "Z","X","C","V","B","N","M","Cn",
-	             "?1","Sm",',',      "Sb",     ".","En"]
+	             "?1","Sm",',',      "Sb",     ".","En"];
 	      
-function asciiValue() {
+function getQwerty() {
    var x = cordx;
    var y = cordy;
-   if(y<1535 && y>2175) {
-       if(x<0 && y>108) {
-        keyValue[0] = "Q";
+   if(y>1535 && y<2175) {
+     for(let i=0; i<10; i+=108) 
+       if(x>0+i && x<108+i) {
+        keyValue = qwertyCode[i];
        }
-   }
+    }
+  }
+	
+function writeMessage() {
+  getQwerty();
+  var x=cordx;
+  var y=cordy;
+  var key=keyValue;
+  var canv = document.getElementById("canvas");
+  var ctx = canv.getContext('2d');
+  ctx.fillStyle = 'white';
+  ctx.fillRect(100, 500, 400, 100);
+  ctx.font = "32px Arial";
+  ctx.fillStyle = "red";
+  ctx.fillText(key, 100,500);
+  }
 	
 </script>
 
