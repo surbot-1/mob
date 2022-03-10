@@ -103,7 +103,7 @@ function handleEnd(evt) {
   var  y = touches[0].pageY;
  // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
  if(x>480 && x<640 && y>0 && y<144) {
-      ts = ts ? false : true; ;  // toggleFullScreen();
+      toggleFullScreen();  // ts = ts ? false : true; ;  
         }
 	
  }
@@ -122,13 +122,13 @@ function log(msg) {
   p.innerHTML = msg + "\n" + p.innerHTML;
  }
     
-function startup() { if(ts) {
+function startup() {
   var el = document.getElementById("canvas");
   el.addEventListener("touchstart", handleStart, false);
   el.addEventListener("touchend", handleEnd, false);
   el.addEventListener("touchcancel", handleCancel, false);
   el.addEventListener("touchmove", handleMove, false);
-} }
+} 
     
  document.addEventListener("DOMContentLoaded", startup);
   
