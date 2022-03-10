@@ -202,11 +202,11 @@ var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	
 function getQwerty() {
      var x = cordx;
-     var y = cordy;
+     var y = cordy; var j =0;
      if (y>1535 && y<2175) {
-     for (let i=0; i<10; i+=108) {
-       if (x>0+i && x<108+i) {
-        keyValue = qwertyCode[j]; j++;
+     for (let i=0; i<10; i++) {
+       if (x>108*i && x<108*i+108) {
+        keyValue = qwertyCode[i];
        }
       }
      }
