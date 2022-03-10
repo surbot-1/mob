@@ -197,7 +197,7 @@ var keyValue;
 var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "Ar", "Z","X","C","V","B","N","M","Cn",
-	             "?1","Sm",',',      "Sb",     ".","En"];
+	             "?1","Sm","Cm",      "Sb",     ".","En"];
 	      
 function getQwerty() {
    var x = cordx;
@@ -212,16 +212,16 @@ function getQwerty() {
 	
 function writeMessage() {
   getQwerty();
-  var x=cordx;
-  var y=cordy;
-  var key=keyValue;
+  var x = cordx;
+  var y = cordy;
+  var keyQ = keyValue;
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
   ctx.fillStyle = 'white';
   ctx.fillRect(100, 800, 400, 100);
   ctx.font = "32px Arial";
   ctx.fillStyle = "red";
-  ctx.fillText(key, 100,800);
+  ctx.fillText("keyQ", 100,800);
   }
 	
 </script>
