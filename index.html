@@ -300,20 +300,20 @@ function writeMessage() {
   if(keyC == "SI") { 
   } else if(keyC == "DEL") {
   ctx.fillStyle = "white";
-  ctx.fillRect(0, 144, 1080, 1391);
-  ci=16; cj=256;
+  ctx.fillRect(0, 144, 1080, 1392);
+  ci=16; cj=192;
   } else if(keyC == "DC1") { 
   } else if(keyC == "DC2") {
   } else if(keyC == "Space") {
-       if(ci>1080) {ci=16; cj+=64;}
-       if(cj>1391) {ci=16; cj=192;}
+       if(ci>1080-48) {ci=16; cj+=64;}
+       if(cj>1392-64) {ci=16; cj=192;}
 	  ci+=48;
   } else if(keyC == "DC3") {
-       if(cj>1391) {ci=16; cj=192;}
+       if(cj>1392-64) {ci=16; cj=192;}
 	  ci=16; cj+=64;
   } else {
-       if(ci>1080) {ci=16; cj+=64;}
-       if(cj>1391) {ci=16; cj=192;}
+       if(ci>1080-48) {ci=16; cj+=64;}
+       if(cj>1392-64) {ci=16; cj=192;}
        ctx.font = "48px Arial";
        ctx.fillStyle = "red";
        ctx.fillText(keyC, ci, cj);
