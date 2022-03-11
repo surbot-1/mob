@@ -76,11 +76,8 @@ var context = canvas.getContext('2d');
   var touches = evt.changedTouches;
   var  x = touches[0].pageX; cordx = x;
   var  y = touches[0].pageY; cordy = y; cords = x+y;
-  writeCords();  
- /* var canv = document.getElementById("canvas");
-  var ctx = canv.getContext('2d');
-  ctx.font = "32px Arial";
-  ctx.fillText("cords",x,y); */
+  // writeCords();  
+ 
 }
 
 function handleMove(evt) {
@@ -300,11 +297,16 @@ function writeMessage() {
   var keyC = keyChar; 
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
-  ctx.fillStyle = "lightgray";
-  ctx.fillRect(100, 760, 256, 52);
+  // ctx.fillStyle = "lightgray";
+  // ctx.fillRect(100, 760, 256, 52);
   ctx.font = "48px Arial";
   ctx.fillStyle = "red";
-  ctx.fillText(keyC, 100, 800);
+	  
+  for(let i=0; i<256; i++) {
+  ctx.fillText(keyC, 16+64*i, 256);
+	  
+     }
+	  
   }
 }
 	
