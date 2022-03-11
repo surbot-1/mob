@@ -193,12 +193,12 @@ var asciiView = new DataView(asciiBuf);
 asciiView.setUint8(0, 125);
 asciiView.getUint8(0); // 125
 var asciiValue = new Uint8Array(asciiBuf);
-var keyCount = 0;
+
 var keyValue;
 var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "Ar", "Z","X","C","V","B","N","M","Cn",
-	             "?1","Sm","Cm",      "Sb",     ".","En"];
+	             "?1","Em","Cm",      "Sb",     ".","En"];
 
 
 	
@@ -254,7 +254,7 @@ function getQwerty() {
         keyValue = qwertyCode[32+i];
 	 }
 	}
-     }
+      }
    }
 
 function writeMessage() { 
