@@ -288,7 +288,7 @@ function getQwerty() {
 	
    }
 
-   var ci = 16; var cj = 200; 
+   var ci = 16; var cj = 208; 
 function writeMessage() { 
   var x = cordx;
   var y = cordy;
@@ -301,19 +301,19 @@ function writeMessage() {
   } else if(keyC == "DEL") {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 144, 1080, 1248);
-  ci=16; cj=200;
+  ci=16; cj=208;
   } else if(keyC == "DC1") { 
   } else if(keyC == "DC2") {
   } else if(keyC == "Space") {
        if(ci>1080-48) {ci=16; cj+=64;}
-       if(cj>1392-64) {ci=16; cj=200;}
+       if(cj>1392-64) {ci=16; cj=208;}
 	  ci+=48;
   } else if(keyC == "DC3") {
-       if(cj>1392-64) {ci=16; cj=200;}
+       if(cj>1392-64) {ci=16; cj=208;}
 	  ci=16; cj+=64;
   } else {
        if(ci>1080-48) {ci=16; cj+=64;}
-       if(cj>1392-64) {ci=16; cj=200;}
+       if(cj>1392-64) {ci=16; cj=208;}
        ctx.font = "48px Arial";
        ctx.fillStyle = "red";
        ctx.fillText(keyC, ci, cj);
