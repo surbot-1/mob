@@ -308,7 +308,7 @@ function writeMessage() {
        if(ci>1080) {ci=16; cj+=64;}
 	  ci+=48;
   } else if(keyC == "DC3") {
-	  cj+=64;
+	  ci=16; cj+=64;
   } else {
        if(ci>1080) {ci=16; cj+=64;}
        ctx.font = "48px Arial";
