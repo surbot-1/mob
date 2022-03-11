@@ -214,6 +214,7 @@ function getQwerty() {
        }
       }
      }
+	
    if (y>1535+160 && y<1535+160*2) {
      for (let i=0; i<9; i++) {
        if (x>54+108*i && x<54+108*i+108) {
@@ -221,7 +222,8 @@ function getQwerty() {
 	 }
 	}
        }
-   if (y>1535+160*2 && y<1535+160*3) {
+	
+ /*  if (y>1535+160*2 && y<1535+160*3) {
      for (let i=0; i<1; i++) {
        if (x>108*i && x<54+108*i+108) {
         keyValue = qwertyCode[19+i];
@@ -237,8 +239,9 @@ function getQwerty() {
         keyValue = qwertyCode[27+i];
 	 }
 	}
-       }
-    if (y>1535+160*3 && y<1535+160*4) {
+       } */
+	
+   /" if (y>1535+160*3 && y<1535+160*4) {
      for (let i=0; i<3; i++) {
        if (x>108*i && x<54+108*i+108) {
         keyValue = qwertyCode[28+i];
@@ -254,7 +257,7 @@ function getQwerty() {
         keyValue = qwertyCode[32+i];
 	 }
 	}
-      }
+      } */
    }
 
 function writeMessage() { 
