@@ -195,14 +195,14 @@ asciiView.getUint8(0); // 125
 var asciiValue = new Uint8Array(asciiBuf);
 
 var keyChar;
-var keyAscii;
+var keyHex;
 
 var qwertyChar    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "SI", "Z","X","C","V","B","N","M","DEL",
 	            "DC1","DC2",",",   "Space",    ".","DC3"];
 
-var qwertyAscii         = [0x51,0x57,0x45,0x52,0x54,0x59,0x55,0x49,0x4F,0x50,   // 0-9  QEERTYUIOP
+var qwertyHex       = [0x51,0x57,0x45,0x52,0x54,0x59,0x55,0x49,0x4F,0x50,   // 0-9  QEERTYUIOP
 	                  0x41,0x53,0x44,0x46,0x47,0x48,0x4A,0x4B,0x4C,     // 10-18 ASDFGHJKL
 	                  0x0F,0x5A,0x58,0x43,0x56,0x42,0x4E,0x4D,0x7F,     // 19-27 siZXCVBNMdel
 	                  0x11,0x12,0x2C,       0x20,        0x2E,0x13];    // 28-33 dc1dc2,Space.dc3
@@ -220,7 +220,7 @@ function getQwerty() {
      for (let i=0; i<10; i++) {
        if (x>108*i && x<108*i+108) {
         keyChar = qwertyChar[i];
-        keyAscii = qwertyAscii[i];
+        keyHex = qwertyHex[i];
        }
       }
      }
@@ -229,7 +229,7 @@ function getQwerty() {
      for (let i=0; i<9; i++) {
        if (x>54+108*i && x<54+108*i+108) {
         keyChar = qwertyChar[10+i];
-        keyAscii = qwertyAscii[10+i];
+        keyHex = qwertyHex[10+i];
 	 }
 	}
        }
@@ -239,19 +239,19 @@ function getQwerty() {
      for (let i=0; i<1; i++) {
        if (x>108*i && x<54+108*i+108) {
         keyChar = qwertyChar[19+i];
-        keyAscii = qwertyAscii[19+i];
+        keyHex = qwertyHex[19+i];
 	 }
 	}
      for (let i=0; i<7; i++) {
        if (x>54+108+108*i && x<54+108+108*i+108) {
         keyChar = qwertyChar[20+i];
-        keyAscii = qwertyAscii[20+i];
+        keyHex = qwertyHex[20+i];
 	 }
 	}
      for (let i=0; i<1; i++) {
        if (x>54+108*8+108*i && x<54+108*8+108*i+108+54) {
         keyChar = qwertyChar[27+i];
-        keyAscii = qwertyAscii[27+i];
+        keyHex = qwertyHex[27+i];
 	 }
 	}
       }
@@ -260,31 +260,31 @@ function getQwerty() {
      for (let i=0; i<1; i++) {
        if (x>108*i && x<108*i+108+54) {
         keyChar = qwertyChar[28+i];
-        keyAscii = qwertyAscii[28+i];
+        keyHex = qwertyHex[28+i];
 	 }
 	}
      for (let i=0; i<2; i++) {
        if (x>54+108+108*i && x<54+108+108*i+108) {
         keyChar = qwertyChar[29+i];
-        keyAscii = qwertyAscii[29+i];
+        keyHex = qwertyHex[29+i];
 	 }
 	}
      for (let i=0; i<1; i++) {
        if (x>54+108*3+108*i && x<54+108*6+108*i+108) {
         keyChar = qwertyChar[31+i];
-        keyAscii = qwertyAscii[31+i]; 
+        keyHex = qwertyHex[31+i]; 
 	 }
 	}
      for (let i=0; i<1; i++) {
        if (x>54+108*7+108*i && x<54+108*7+108*i+108) {
         keyChar = qwertyChar[32+i];
-        keyAscii = qwertyAscii[32+i]; 
+        keyHex = qwertyHex[32+i]; 
 	 }
 	}
     for (let i=0; i<1; i++) {
        if (x>54+108*8+108*i && x<54+108*8+108*i+108+54) {
         keyChar = qwertyChar[33+i];
-        keyAscii = qwertyAscii[33+i]; 
+        keyHex = qwertyHex[33+i]; 
 	 }
 	}
       } 
@@ -297,14 +297,14 @@ function writeMessage() {
   var y = cordy;
   if (y>1535 && y<2175) {
   getQwerty();
-  var keyQ = keyChar; 
+  var keyC = keyChar; 
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
   ctx.fillStyle = "gray";
-  ctx.fillRect(100, 760, 48, 48);
+  ctx.fillRect(100, 760, 256, 48);
   ctx.font = "48px Arial";
   ctx.fillStyle = "red";
-  ctx.fillText(keyQ, 100, 800);
+  ctx.fillText(keyC, 100, 800);
   }
 }
 	
