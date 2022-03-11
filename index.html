@@ -297,17 +297,17 @@ function writeMessage() {
   var keyC = keyChar; 
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
-  if(keyC = "SI") { 
+  if(keyC == "SI") { 
   } else if(keyC == "DEL") {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 144, 1080, 1248);
   ci=16; cj=256;
-  } else if(keyC = "DC1") { 
-  } else if(keyC = "DC2") {
-  } else if(keyC = "Space") {
+  } else if(keyC == "DC1") { 
+  } else if(keyC == "DC2") {
+  } else if(keyC == "Space") {
        if(ci>1080) {ci=16; cj+=64;}
 	  ci+=48;
-  } else if(keyC = "DC3") {
+  } else if(keyC == "DC3") {
   } else {
        if(ci>1080) {ci=16; cj+=64;}
        ctx.font = "48px Arial";
