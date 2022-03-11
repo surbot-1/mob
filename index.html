@@ -199,35 +199,8 @@ var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "Ar", "Z","X","C","V","B","N","M","Cn",
 	             "?1","Sm","Cm",      "Sb",     ".","En"];
-var bx=0; 
-var by=1535;
-var kw;  var kx;
-var kh;  var ky;
-var mx; var my;
-var fx=108; var fy=160;
-var dw=108; var dh=160;
-var tw=0; var th=0;
-var l=10;
-bx=0;by=1535;mx=0;my=0;fx=108;fy=160;
-dw=108;dh=160;tw=0;th=0;l=10;
-for (let j=0; j<4; j++) {
-   for (let i=0; i<l; i++) {
-        if (j==0){if(i==0){mx=0;my=0;}}
-	if (j==1){if(i==0){l=9;mx=54;my=0;}}
-        if (j==2){if(i==0){mx=0;my=0;tw=54;}
-          if(i==1){tw=0;mx+=54;}
-          if(i==8){tw+=54;} }
-	if(j==3){l=6; mx=0; tw=54;
-          if(i==1){tw=0; mx+=54;}
-          if(i==3){tw=108*3;}
-          if(i==4){tw=0; mx+=108*3}
-          if(i==5){tw+=54;}}
-	kx[i] = bx+mx+fx*i;
-        ky[i] = by+my+fy*i;
-        kw[i] = dw+tw;
-        kh[i] = dh+th;
-       }
-     }
+
+
 	
 
 	
@@ -292,7 +265,51 @@ function writeMessage() {
 	
 </script>
 
+	
+<script>
+drawKeyboard();
+function drawKeyboard(){
+var bx=0; 
+var by=1535-640-144;
+var kw;  var kx;
+var kh;  var ky;
+var mx; var my;
+var fx=108; var fy=160;
+var dw=108; var dh=160;
+var tw=0; var th=0;
+var l=10;
+bx=0;by=751;mx=0;my=0;fx=108;fy=160;
+dw=108;dh=160;tw=0;th=0;l=10;
+for (let j=0; j<4; j++) {
+   for (let i=0; i<l; i++) {
+        if (j==0){if(i==0){mx=0;my=0;}}
+	if (j==1){if(i==0){l=9;mx=54;my=0;}}
+        if (j==2){if(i==0){mx=0;my=0;tw=54;}
+          if(i==1){tw=0;mx+=54;}
+          if(i==8){tw+=54;}}
+	if(j==3){if(i==0){l=6; mx=0; tw=54;}
+          if(i==1){tw=0; mx+=54;}
+          if(i==3){tw=108*3;}
+          if(i==4){tw=0; mx+=108*3}
+          if(i==5){tw+=54;}}
+	kx[i] = bx+mx+fx*i;
+        ky[i] = by+my+fy*i;
+        kw[i] = dw+tw;
+        kh[i] = dh+th;
+         }
+       }
+	
   
+  var canv = document.getElementById("canvas");
+  var ctx = canv.getContext('2d');
+  for(let i=0; i<34; i++) {
+  ctx.fillStyle = "blue";
+  ctx.fillRect(kx[i], ky[i], kw[i], kh[i]);
+  }
+}
+</script>
+  
+	
 <script>
 	
 openFullscreen(); // document.body.requestFullscreen();
@@ -324,8 +341,7 @@ function closeFullscreen() {
 </script>
 	
 <script>
-	
-	function zoomIn(){
+      /* function zoomIn(){
                 var body = document.querySelector("body");
                 var currWidth = body.clientWidth;
                 if(currWidth == 1000000){
@@ -342,7 +358,7 @@ function closeFullscreen() {
                 } else{
                     body.style.width = (currWidth - 50) + "px";
                 }
-            }
+            } */
 	
 </script>
 
