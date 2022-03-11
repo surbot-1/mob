@@ -199,35 +199,37 @@ var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "Ar", "Z","X","C","V","B","N","M","Cn",
 	             "?1","Sm","Cm",      "Sb",     ".","En"];
-var bx=0; var mx; var my;
+var bx=0; 
 var by=1535;
-var kw;  var kPx;
-var kh;  var kPy;
-     var l=10;
+var kw;  var kx;
+var kh;  var ky;
+var mx; var my;
+var fx=108; var fy=160;
+var dw=108; var dh=160;
+var tw=0; var th=0;
+var l=10;
+bx=0;by=1535;mx=0;my=0;fx=108;fy=160;
+dw=108;dh=160;tw=0;th=0;l=10;
 for (let j=0; j<4; j++) {
    for (let i=0; i<l; i++) {
-        if (j==1){mx=0;my=0}
-	if (j==2){l=9;mx=54;my=0;}
-        if (j==3){l=9;mx=0;my=0;
-          if(i==1){tx=54;}
-          if(i==2){tx=0; mx=54;}
-          if(i==9){tx=54;} }
-	if(j==4){l=6; mx=0; tx=54;
-          if(i==2){tx=0; mx=54;}
-          if(i==4){tx=108*3;}
-          if(i==5){tx=0; mx+=108*3}
-          if(i==6){tx=54;}}
-	kx[i] = bx+mx+108*i;
-        ky[i] = by+my+160*j;
-        kw[i] = 108+tx;
-        kh[i] = 160+ty;
+        if (j==0){if(i==0){mx=0;my=0;}}
+	if (j==1){if(i==0){l=9;mx=54;my=0;}}
+        if (j==2){if(i==0){mx=0;my=0;tw=54;}
+          if(i==1){tw=0;mx+=54;}
+          if(i==8){tw+=54;} }
+	if(j==3){l=6; mx=0; tw=54;
+          if(i==1){tw=0; mx+=54;}
+          if(i==3){tw=108*3;}
+          if(i==4){tw=0; mx+=108*3}
+          if(i==5){tw+=54;}}
+	kx[i] = bx+mx+fx*i;
+        ky[i] = by+my+fy*i;
+        kw[i] = dw+tw;
+        kh[i] = dh+th;
        }
      }
 	
-for (let i=10; i<18; i++) {
-     kPx[i]  = rx+16+108*i;
-     kpy[i]  = ry+16+160;
-     }
+
 	
 function getQwerty() {
      var x = cordx;
