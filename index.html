@@ -288,7 +288,7 @@ function getQwerty() {
 	
    }
 
-
+   var ci = 16; var cj = 256; 
 function writeMessage() { 
   var x = cordx;
   var y = cordy;
@@ -302,9 +302,9 @@ function writeMessage() {
   ctx.font = "48px Arial";
   ctx.fillStyle = "red";
 	  
-  for(let i=0; i<256; i++) {
-  ctx.fillText(keyC, 16+64*i, 256);
-	  
+   if(ci>1080) {ci=16;cj+=64;}
+   ctx.fillText(keyC, ci, cj);
+       ci+=64;
      }
 	  
   }
