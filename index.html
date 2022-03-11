@@ -198,7 +198,7 @@ var keyValue;
 var qwertyCode    = ["Q","W","E","R","T","Y","U","I","O","P",
 	               "A","S","D","F","G","H","J","K","L",
 	             "Ar", "Z","X","C","V","B","N","M","Cn",
-	             "?1","Em","cm",      "Sb",     ".","En"];
+	             "?1","Em","Cm",      "Sb",     ".","En"];
 
 
 	
@@ -245,18 +245,28 @@ function getQwerty() {
       }
 	
     if (y>1535+160*3 && y<1535+160*4) {
-     for (let i=0; i<3; i++) {
-       if (x>108*i && x<54+108*i+108) {
+     for (let i=0; i<0; i++) {
+       if (x>108*i && x<108*i+108+54) {
         keyValue = qwertyCode[28+i];
 	 }
 	}
+     for (let i=0; i<2; i++) {
+       if (x>54+108+108*i && x<54+108+108*i+108) {
+        keyValue = qwertyCode[29+i];
+	 }
+	}
      for (let i=0; i<1; i++) {
-       if (x>54+108*i+108*3 && x<54+108*i+108*7) {
+       if (x>54+108*3+108*i && x<54+108*6+108*i+108) {
         keyValue = qwertyCode[31+i];
 	 }
 	}
-     for (let i=0; i<2; i++) {
-       if (x>54+108*i+108*7 && x<54+108*i+108*8+54) {
+     for (let i=0; i<1; i++) {
+       if (x>54+108*7+108*i+ && x<54+108*7+108*i+108) {
+        keyValue = qwertyCode[32+i];
+	 }
+	}
+    for (let i=0; i<1; i++) {
+       if (x>54+108*8+108*i+ && x<54+108*8+108*i+108+54) {
         keyValue = qwertyCode[32+i];
 	 }
 	}
