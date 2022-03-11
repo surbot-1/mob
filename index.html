@@ -300,7 +300,7 @@ function writeMessage() {
   if(keyC == "SI") { 
   } else if(keyC == "DEL") {
   ctx.fillStyle = "white";
-  ctx.fillRect(0, 144, 1080, 1248);
+  ctx.fillRect(0, 144, 1080, 1391);
   ci=16; cj=256;
   } else if(keyC == "DC1") { 
   } else if(keyC == "DC2") {
@@ -308,6 +308,7 @@ function writeMessage() {
        if(ci>1080) {ci=16; cj+=64;}
 	  ci+=48;
   } else if(keyC == "DC3") {
+	  cj+=64;
   } else {
        if(ci>1080) {ci=16; cj+=64;}
        ctx.font = "48px Arial";
