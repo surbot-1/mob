@@ -25,11 +25,12 @@ document.getElementById("divCanv").appendChild(canv);
 
   
 <script>
-       var cx=0, cy=0, cw=1080, ch=2400-112-112;
+	
+var cx=0, cy=0, cw=1080, ch=2400-112-112; // 2176
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
         
-        var image1 = new Image();
+        var image1 = new Image();  // dp 144
         image1.setAttribute('crossOrigin', 'anonymous');
         image1.src = 'dp2.png';
         image1.onload = function (e) {
@@ -40,23 +41,23 @@ var context = canvas.getContext('2d');
           context.drawImage(image1, x, y, w, h);
         };
 
-        var image2 = new Image();
+        var image2 = new Image();  // text 144
         image2.setAttribute('crossOrigin', 'anonymous');
         image2.src = 'text4.png';
         image2.onload = function (e) {
 	var x = cx;
-	var y = ch-144-640-1;
+	var y = ch-144-640-1;  // 1391
 	var w = cw;
 	var h = 144;
           context.drawImage(image2, x, y, w, h);
         };
         
-        var image3 = new Image();
+        var image3 = new Image();  // keypad 640
         image3.setAttribute('crossOrigin', 'anonymous');
         image3.src = 'keypad1.png';
         image3.onload = function (e) {
 	var x = cx;
-	var y = ch-640-1;
+	var y = ch-640-1;    // 1535
 	var w = cw;
 	var h = 640;
           context.drawImage(image3, x, y, w, h);
@@ -92,17 +93,17 @@ function handleMove(evt) {
     
 function handleEnd(evt) {
   evt.preventDefault();
-  // log("touchend");
   var el = document.getElementById("canvas");
   var ctx = el.getContext("2d");
   var touches = evt.changedTouches;
   var  x = touches[0].pageX; cordx = x;
   var  y = touches[0].pageY; cordy = y;
- // document.getElementById("div1").innerHTML += "<br>"+ x +" "+ y;
+ 
  if(x>480 && x<640 && y>0 && y<144) {
       toggleFullScreen();  // ts = ts ? false : true; ;  
         }
   writeMessage();
+  // screen1();
  }
     
 function handleCancel(evt) {
@@ -131,59 +132,129 @@ function startup() {
   
 </script>
 
+	
 <script>
-  alert('1'); var fs = false;
-function writeCords() { 
-  var canv = document.getElementById("canvas");
-  var ctx = canv.getContext('2d');
-  var x = cordx; var y = cordy;
+alert('1'); 
+/* function screen1() {
 	
-if(x>0 && x<1080 && y>0 && y<1000) {
-  ctx.fillStyle = "white";
-  ctx.fillRect(100, 500, 400, 100);
-  ctx.font = "32px Arial";
-  ctx.fillStyle = "red";
-  ctx.fillText("Abc",100,500);
-  ctx.fillText("123",100,550);
-  }			
+    var cx=0, cy=0, cw=1080, ch=2400-112-112; // 2176
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+        
+        var image1 = new Image();  // dp 144
+        image1.setAttribute('crossOrigin', 'anonymous');
+        image1.src = 'dp2.png';
+        image1.onload = function (e) {
+        var x = cx;
+	var y = cy;
+	var w = cw;
+	var h = 144;
+          context.drawImage(image1, x, y, w, h);
+        };
+	
+	var image2 = new Image();  // text 144
+        image2.setAttribute('crossOrigin', 'anonymous');
+        image2.src = 'text4.png';
+        image2.onload = function (e) {
+	var x = cx;
+	var y = ch-144-640-1+640;  // 1391+640=2031
+	var w = cw;
+	var h = 144;
+          context.drawImage(image2, x, y, w, h);
+        };
+	
+        var x = cordx;
+        var y = cordy;
+   if (x>135 && x<704 && y>2031 && y<2175) {
+        screen2();
+       }
 
-}
-	
-/* function bodyFS() {
-	if(!document.fullscreenElement) { 
-        if(!fs) {
-        document.body.requestFullscreen(); 
-        setTimeout(function() { fs = true;
-	document.exitFullscreen(); 
-	},1000);
-       } 
-     }
-   } */
-	
-function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-   } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
     }
-   } 
-  }
 	
- addEventListener('fullscreenchange', event => {
-    setTimeout( function() {
-   document.exitFullscreen(); 
-    }, 1000);
-  }); 
+ function screen2() {
 	
-/* onfullscreenchange = event => {
-   document.exitFullscreen();
-   }; */
+    var cx=0, cy=0, cw=1080, ch=2400-112-112; // 2176
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+	 
+    var image2 = new Image();  // text 144
+        image2.setAttribute('crossOrigin', 'anonymous');
+        image2.src = 'text4.png';
+        image2.onload = function (e) {
+	var x = cx;
+	var y = ch-144-640-1;  // 1391
+	var w = cw;
+	var h = 144;
+          context.drawImage(image2, x, y, w, h);
+        };
+        
+        var image3 = new Image();  // keypad 640
+        image3.setAttribute('crossOrigin', 'anonymous');
+        image3.src = 'keypad1.png';
+        image3.onload = function (e) {
+	var x = cx;
+	var y = ch-640-1;    // 1535
+	var w = cw;
+	var h = 640;
+          context.drawImage(image3, x, y, w, h);
+        };
+	 
+       var cordx, cordy;
+       var ci = 16; var cj = 208; 
+  function textMessage() {
+       var x = cordx;
+       var y = cordy;
+       readQwerty();
+       var keyC = keyChar; 
+       if(keyC == "SI") { 
+       } else if(keyC == "DEL") {
+              ctx.fillStyle = "white";
+              ctx.fillRect(0, 144, 1080, 1247);
+              ci=16; cj=208;
+       } else if(keyC == "DC1") { 
+       } else if(keyC == "DC2") {
+       } else if(keyC == "Space") {
+              if(ci>1080-48) {ci=16; cj+=64;}
+              if(cj>1392-64) {ci=16; cj=208;}
+	       ci+=48;
+       } else if(keyC == "DC3") {
+              if(cj>1392-64) {ci=16; cj=208;}
+	      ci=16; cj+=64;
+       } else {
+             if(ci>1080-48) {ci=16; cj+=64;}
+             if(cj>1392-64) {ci=16; cj=208;}
+             ctx.font = "48px Arial";
+             ctx.fillStyle = "red";
+             ctx.fillText(keyC, ci, cj);
+             ci+=48;
+        } 
+     }   
+    
+	 
+  function handleEnd(evt) {
+       evt.preventDefault();
+       var el = document.getElementById("canvas");
+       var ctx = el.getContext("2d");
+       var touches = evt.changedTouches;
+       var  x = touches[0].pageX; cordx = x;
+       var  y = touches[0].pageY; cordy = y;
+	  
+       if (x>0 && x<1080 && y>1535 && y<2175) { 
+       textMessage();
+           }
+       }
+	 
+    canvas.addEventListener("touchend", handleEnd, false);
+	 
+  } */
+	 
   
+
 </script>
   
 
 <script>
+	
 alert('2');
 var asciiBuf = new ArrayBuffer(256);
 var asciiView = new DataView(asciiBuf);
@@ -204,11 +275,13 @@ var qwertyHex     = [0x51,0x57,0x45,0x52,0x54,0x59,0x55,0x49,0x4F,0x50,  // 0-9 
 	              0x0F, 0x5A,0x58,0x43,0x56,0x42,0x4E,0x4D, 0x7F,    // 19-27 siZXCVBNMdel
 	              0x11, 0x12,0x2C,       0x20,        0x2E, 0x13];   // 28-33 dc1dc2,Space.dc3
           
-
+</script>
 	
 
 	
-function getQwerty() {
+<script>
+	
+function readQwerty() {
 	
      var x = cordx;
      var y = cordy;
@@ -287,13 +360,26 @@ function getQwerty() {
       } 
 	
    }
+	
 
+</script>
+	
+	
+<script>
+	
+ 
+	
+</script>
+	
+	
+<script>
+	
    var ci = 16; var cj = 208; 
 function writeMessage() { 
   var x = cordx;
   var y = cordy;
   if (y>1535 && y<2175) {
-  getQwerty();
+  readQwerty();
   var keyC = keyChar; 
   var canv = document.getElementById("canvas");
   var ctx = canv.getContext('2d');
@@ -391,8 +477,62 @@ for (let j=0; j<4; j++) {
   ctx.fillRect(kx[i], ky[i], kw[i], kh[i]);
   }
 }
+	
 </script>
-  
+	
+	
+<script>
+	
+	var fs = false;
+function writeCords() { 
+  var canv = document.getElementById("canvas");
+  var ctx = canv.getContext('2d');
+  var x = cordx; var y = cordy;
+	
+if(x>0 && x<1080 && y>0 && y<1000) {
+  ctx.fillStyle = "white";
+  ctx.fillRect(100, 500, 400, 100);
+  ctx.font = "32px Arial";
+  ctx.fillStyle = "red";
+  ctx.fillText("Abc",100,500);
+  ctx.fillText("123",100,550);
+  }	
+	
+ }
+		
+/* function bodyFS() {
+	if(!document.fullscreenElement) { 
+        if(!fs) {
+        document.body.requestFullscreen(); 
+        setTimeout(function() { fs = true;
+	document.exitFullscreen(); 
+	},1000);
+       } 
+     }
+   } */
+	
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+   } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+   } 
+  }
+	
+ addEventListener('fullscreenchange', event => {
+    setTimeout( function() {
+   document.exitFullscreen(); 
+    }, 1000);
+  }); 
+	
+/* onfullscreenchange = event => {
+   document.exitFullscreen();
+   }; */
+
+</script>
+	
 	
 <script>
 	
